@@ -3,14 +3,16 @@
 class Cliente {
     public string $nome;
     public string $email;
-    public string $senha;
+    public string $senha = ""; // Valor inicial padrão (Para quando a variável não for inicializada)
     public array $telefones;
 
-    // Método construtor
-    public function __construct(string $nome, string $email)
-    {
-        // Variável especial, sempre apontando para a referência de Classe atualmente manipulada.
-        $this->nome = $nome;
-        $this->email = $email;
+    public function exibirDados() {
+        echo "<h3> $this->nome </h3>";
+        echo "<ul>";
+        echo "<li> $this->email</li>";
+        echo "<li>" .implode(', ', $this->telefones). "</li>";
+        echo "</ul>";
     }
+
+
 }
