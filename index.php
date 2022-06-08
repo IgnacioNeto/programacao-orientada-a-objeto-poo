@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 3</title>
+    <title>Exemplo 4</title>
 </head>
 <body>
-    <h1>PHP POO - Exemplo 3</h1>
+    <h1>PHP POO - Exemplo 4</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Acesso direto à propriedades</li>
-        <li>Atribuição de dados e leitura</li>
+        <li>Encapsulamento</li>
+        <li>Modificadores de visibilidade</li>
+        <li>Métodos de acesso: getters e setters</li>
     </ul>
 <hr>
 
@@ -23,39 +24,26 @@ require_once "src/Cliente.php";
 $clienteA = new Cliente;
 $clienteB = new Cliente;
 
-// Atribuindo dados às propriedades do objeto
-$clienteA->nome = "Tiago";
-$clienteA->email = "tiago@gmail.com";
-$clienteA->telefones =["11-2135-0300", "11-97777-5555"];
+// Atribuindo dados via setters do objeto
+$clienteA->setNome("Tiago");
+$clienteA->setEmail("tiago@gmail.com");
+$clienteA->setSenha("ti123");
 
-$clienteB->nome = "Bernardo";
-$clienteB->email = "bernardo@hotmail.com";
-$clienteB->telefones = array("11-98888-5555");
+$clienteB->setNome("Bernardo");
+$clienteB->setEmail("bernardo@gmail");
+$clienteB->setSenha("ber654");
 
 ?>
 <!-- ______________________________________________________________________ -->
 
-<!-- Teste -->
-<!-- <pre><?=var_dump($clienteA, $clienteB)?></pre> -->
+<h2>Dados dos objetos (leitura via getters)</h2>
+<h3><?= $clienteA->getNome() ?></h3>
+<h3><?= $clienteA->getEmail() ?></h3>
+<h3><?= $clienteA->getSenha() ?></h3>
 
-<h2>Dados dos objetos (leitura)</h2>
-<h3><?= $clienteA->nome ?></h3>
-<p>E-mail: <?= $clienteA->email?></p>
-<!-- Função implode para transformar em string e não ter que chamar Loop -->
-<p>Telefones: <?=implode(", ", $clienteA->telefones)?> </p>
-<p>Senha: <?=$clienteA->senha?> </p>
-
-<h3><?= $clienteB->nome ?></h3>
-<p>E-mail: <?= $clienteB->email?></p>
-<p>Telefones: <?=implode(", ", $clienteB->telefones)?> </p>
-<p>Senha: <?=$clienteB->senha?> </p>
-<hr>
-
-<!-- ______________________________________________________________________ -->
-<h2>Chamando método exibirDados</h2>
-
-<?= $clienteA->exibirDados() ?>
-<?= $clienteB->exibirDados() ?>
+<h3><?= $clienteB->getNome() ?></h3>
+<h3><?= $clienteB->getEmail() ?></h3>
+<h3><?= $clienteB->getSenha() ?></h3>
 
     
 </body>
