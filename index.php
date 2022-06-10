@@ -4,47 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 4</title>
+    <title>Exemplo 5</title>
 </head>
 <body>
-    <h1>PHP POO - Exemplo 4</h1>
+    <h1>PHP POO - Exemplo 5</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Encapsulamento</li>
-        <li>Modificadores de visibilidade</li>
-        <li>Métodos de acesso: getters e setters</li>
+        <li>Herança</li>
+        <li>Classe Abstrata - Não pode ser instanciada</li>
     </ul>
 <hr>
 
 <?php
-require_once "src/Cliente.php";
+// Importando a classe
+require_once "src/PessoaFisica.php"; // subclasse
+require_once "src/PessoaJuridica.php"; // subclasse
 
-// Criação dos objetos
-$clienteA = new Cliente;
-$clienteB = new Cliente;
-
-// Atribuindo dados via setters do objeto
-$clienteA->setNome("Tiago");
-$clienteA->setEmail("tiago@gmail.com");
-$clienteA->setSenha("ti123");
-
-$clienteB->setNome("Bernardo");
-$clienteB->setEmail("bernardo@gmail");
-$clienteB->setSenha("ber654");
+$clientePF = new PessoaFisica;
+$clientePF-> setNome('Tiago');
+$clientePF-> setEmail('tiago@gmail.com');
+$clientePF-> setSenha('123abc');
+$clientePF-> setCpf('123.456.789-00');
+$clientePF-> setIdade(38);
 
 ?>
-<!-- ______________________________________________________________________ -->
+<!-- Para testar -->
+<pre><?=var_dump($clientePF)?></pre>
 
-<h2>Dados dos objetos (leitura via getters)</h2>
-<h3><?= $clienteA->getNome() ?></h3>
-<h3><?= $clienteA->getEmail() ?></h3>
-<h3><?= $clienteA->getSenha() ?></h3>
+<hr>
+<?php
+$clientePJ = new PessoaJuridica;
+$clientePJ-> setNome('Adventure, LTDA');
+$clientePJ-> setEmail('adventure@gmail.com');
+$clientePJ-> setSenha('456abc');
+$clientePJ-> setCnpj('12.345.678/0001-10');
+$clientePJ-> setAnoFundacao(1998);
+$clientePJ-> setNomeFantasia('Vida adventure');
 
-<h3><?= $clienteB->getNome() ?></h3>
-<h3><?= $clienteB->getEmail() ?></h3>
-<h3><?= $clienteB->getSenha() ?></h3>
+?>
+<!-- Para testar -->
+<pre><?=var_dump($clientePJ)?></pre>
 
-    
+<!-- Erro pois cliente é abstrato -->
+<?php $cliente = new Cliente; ?> 
+<pre><?=var_dump($cliente)?></pre>
+
 </body>
 </html>
