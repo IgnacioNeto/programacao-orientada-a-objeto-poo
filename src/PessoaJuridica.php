@@ -1,9 +1,17 @@
 <?php
 require_once "Cliente.php";
-class PessoaJuridica extends Cliente {
+
+/* final class 
+   indica que a classe NÂO PERMITE herança */
+/* final */class PessoaJuridica extends Cliente {
     private string $cnpj;
     private int $anoFundacao;
     private string $nomeFantasia;
+
+    // Já entra em funcionamento automaticamente
+    public function __construct(){
+        $this->setSituacao("verificar");
+    }
 
     public function getCnpj(): string
     {
