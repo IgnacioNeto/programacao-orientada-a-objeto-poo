@@ -4,25 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 5</title>
+    <title>Exemplo 6</title>
 </head>
 <body>
-    <h1>PHP POO - Exemplo 5</h1>
+    <h1>PHP POO - Exemplo 6</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Herança</li>
-        <li>Classe Abstrata - Não pode ser instanciada</li>
-        <li>Classe Final (não permite herança)</li>
-        <li>Métodos/ propriedades protegidos (acessíveis apenas pelas subclasses)</li>
+        <li>Polimorfismo</li>
     </ul>
+
 <hr>
 
 <?php
 // Importando a classe
 require_once "src/PessoaFisica.php"; // subclasse
-// require_once "src/PessoaJuridica.php"; // subclasse
-require_once "src/MEI.php"; // subclasse
+require_once "src/PessoaJuridica.php"; // subclasse
 
 $clientePF = new PessoaFisica;
 $clientePF-> setNome('Tiago');
@@ -36,25 +33,27 @@ $clientePF-> setIdade(38);
 <?php
 $clientePJ = new PessoaJuridica;
 $clientePJ-> setNome('Adventure, LTDA');
-$clientePJ-> setEmail('adventure@gmail.com');
-$clientePJ-> setSenha('456abc');
 $clientePJ-> setCnpj('12.345.678/0001-10');
 $clientePJ-> setAnoFundacao(1998);
-$clientePJ-> setNomeFantasia('Vida adventure');
-
-$clienteMEI = new MEI;
-$clienteMEI-> setNome('James Hetfield');
-$clienteMEI-> setNomeFantasia('Metallica');
-$clienteMEI-> setCnpj('25.388.699/0001-42');
-$clienteMEI-> setAreaDeAtuacao('Música');
 
 ?>
-<!-- Para testar -->
-<pre><?=var_dump($clientePF, $clientePJ, $clienteMEI )?></pre>
 
-<!-- Erro pois cliente é abstrato -->
-<?php $cliente = new Cliente; ?> 
-<pre><?=var_dump($cliente)?></pre>
+<h3>Pessoa Fisica</h3>
+<p> <?=$clientePF->getNome()?> </p>
+<hr>
+<h3>Pessoa Juridica</h3>
+<p> <?=$clientePJ->getNome()?> </p>
+
+<!-- Exibir -->
+<hr>
+<section><?=$clientePF->exibirDados()?></section>
+
+<hr>
+<section><?=$clientePJ->exibirDados()?></section>
+
+<!-- Para testar -->
+<!-- <pre><?=var_dump($clientePF, $clientePJ)?></pre> -->
+
 
 </body>
 </html>

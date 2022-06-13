@@ -3,12 +3,19 @@ require_once "Cliente.php";
 class PessoaFisica extends Cliente {
     private string $cpf;
     private int $idade;
-    
+
     // Já entra em funcionamento automaticamente
     public function __construct(){
         $this->setSituacao("normal");
     }
+// _____________________________________________________
+    public function exibirDados() {
+        echo "<h3>".$this->getNome()."</h3>";
+        echo "<p>Idade: ".$this->idade."</p>";
+        echo "<p>Situação: ".$this->getSituacao()."</p>";
 
+    }
+// _____________________________________________________
     public function getCpf(): string
     {
         return $this->cpf;
