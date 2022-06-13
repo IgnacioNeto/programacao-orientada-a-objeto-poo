@@ -40,15 +40,19 @@ abstract class Cliente {
 
     }
 // __________________________________________________________________________
-    public function getSituacao(): string
+/* Modificador de visibilidade
+  - public: nenhuma restrição
+  - private: restrição total (só a classe conhece os recursos dela)
+  - protected: restrição parcial (recursos acessíveis pela própria classe   e  pelas subclasses que a herdam) */
+
+    protected function getSituacao(): string
     {
         return $this->situacao;
     }
 
-    public function setSituacao(string $situacao)
+    protected function setSituacao(string $situacao)
     {
         $this->situacao = $situacao;
 
-        return $this;
     }
 }

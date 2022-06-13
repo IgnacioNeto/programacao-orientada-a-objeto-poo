@@ -13,7 +13,8 @@
     <ul>
         <li>Herança</li>
         <li>Classe Abstrata - Não pode ser instanciada</li>
-        <li>Classe Final</li>
+        <li>Classe Final (não permite herança)</li>
+        <li>Métodos/ propriedades protegidos (acessíveis apenas pelas subclasses)</li>
     </ul>
 <hr>
 
